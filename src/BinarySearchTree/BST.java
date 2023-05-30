@@ -410,13 +410,9 @@ public class BST<T> implements Serializable{
         }
     }
 
-    private Node<T> getRoot() {
-        return root;
-    }
-
     public void readFromFile(String filePath) {
         try(FileInputStream fis = new FileInputStream(filePath); ObjectInputStream ois = new ObjectInputStream(fis)) {
-            this.root = ((BST<T>)ois.readObject()).getRoot();
+            this.root = ((BST<T>)ois.readObject()).root;
         } catch(IOException e) {
             System.err.println(e);
         } catch (ClassNotFoundException e) {
